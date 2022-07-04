@@ -1,7 +1,7 @@
 ## Loading required packages
 
 This repository contains the R code (1) and associated data for the
-Bayesian statistical model described in Díaz et al. 2022 (2) to estimate
+Bayesian statistical model described in Díaz et al. (2) to estimate
 prevalence from apparent prevalence measured by two independent
 diagnostics (Kato Katz, KK and Miracidial Hatching Test, MHT). The model
 requires installation of the rjags (3) and coda (4) packages.
@@ -25,26 +25,26 @@ The model is then run within the R environment using:
 
     source("runmod.R")
 
-# Summary data
+## Summary data
 
 The summary statistics of the estimated posterior distributions are
 loaded as follows:
 
     sumdat <- readRDS("prev.rds")
 
-# References
+## References
 
 <span class="csl-left-margin">1. </span><span class="csl-right-inline">R
 Core Team. *R: A language and environment for statistical computing*.
-Vienna, Austria: R Foundation for Statistical Computing (2019).
-<https://www.R-project.org></span>
+Vienna, Austria: R Foundation for Statistical Computing (2021).
+<https://www.R-project.org/></span>
 
 <span class="csl-left-margin">2. </span><span
-class="csl-right-inline">Díaz AV, Lambert S, Neves MI, Borlase A, Léger
+class="csl-right-inline">Díaz AV, Lambert S, M. Inês Neve an AB, Léger
 E, Diouf ND, Sène M, Webster JP, Walker M. Modelling livestock
 test-and-treat: A novel one health strategy to control schistosomiasis
-and mitigate against drug resistance. *Front Trop Dis* (2022) XX:XX.
-doi: [XX](https://doi.org/XX)</span>
+and mitigate against drug resistance. *Front Trop Dis* (2022) in
+press:</span>
 
 <span class="csl-left-margin">3. </span><span
 class="csl-right-inline">Plummer M. *Rjags: Bayesian graphical models
