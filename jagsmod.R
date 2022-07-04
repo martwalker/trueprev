@@ -1,0 +1,30 @@
+cat("
+model {
+
+for (i in 1:N) {
+      yKK[i] ~ dbern(piKK[i])
+      yHT[i] ~ dbern(piHT[i])
+      ## KK +ve
+      piKK[i] <- pr[x[i]]*seKK  + (1-pr[x[i]])*(1-spKK)
+      ## HT +ve
+      piHT[i] <- pr[x[i]]*seHT + (1-pr[x[i]])*(1-spHT)
+    }
+
+
+## beta informative prior on sensitivities
+alpha.seKK <- ((1-mn.seKK)/var.seKK - 1/mn.seKK)*mn.seKK*mn.seKK
+beta.seKK <- alpha.seKK*(1/mn.seKK-1)
+alpha.seHT <- ((1-mn.seHT)/var.seHT - 1/mn.seHT)*mn.seHT*mn.seHT
+beta.seHT <- alpha.seHT*(1/mn.seHT-1)
+
+## indpendent prevelnce & sensitivities for each location (with identical priors)
+for (j in 1:Nx) {
+pr[j] ~ dbeta(1,1)
+}
+
+
+seKK ~ dbeta(alpha.seKK, beta.seKK)
+seHT ~ dbeta(alpha.seHT, beta.seHT)
+
+
+}", file="jagsmod.txt")
